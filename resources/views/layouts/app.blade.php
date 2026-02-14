@@ -1,39 +1,91 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Bancaire</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 960px; margin: 20px auto; padding: 0 16px; }
-        nav a { margin-right: 12px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 12px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        form.inline { display: inline; }
-        .actions a, .actions button { margin-right: 8px; }
-        .errors { color: #b00020; }
-        .field { margin-bottom: 10px; }
-    </style>
-</head>
-<body>
-    <h1>Gestion Bancaire</h1>
-    <nav>
-        <a href="/agences">Agences</a>
-        <a href="/clients">Clients</a>
-        <a href="/virements">Virements</a>
-    </nav>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+        background-color: #f4f6f9;
+        color: #333;
+    }
 
-    @if ($errors->any())
-        <div class="errors">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+    }
 
-    <hr>
-    @yield('content')
-</body>
-</html>
+    nav {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    nav a {
+        text-decoration: none;
+        padding: 8px 15px;
+        background-color: #2c3e50;
+        color: white;
+        border-radius: 5px;
+        margin: 0 5px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        background-color: #1abc9c;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    th {
+        background-color: #2c3e50;
+        color: white;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    button, input[type="submit"] {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: #1abc9c;
+        color: white;
+        transition: 0.3s;
+    }
+
+    button:hover, input[type="submit"]:hover {
+        background-color: #16a085;
+    }
+
+    input, select {
+        padding: 6px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 4px;
+    }
+
+    .field {
+        margin-bottom: 12px;
+    }
+
+    .errors {
+        background-color: #ffe6e6;
+        border: 1px solid #ff4d4d;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+</style>
